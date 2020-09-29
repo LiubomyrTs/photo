@@ -1,0 +1,45 @@
+.info-card {
+  position: relative;
+  top: -10rem;
+  margin-bottom: -10rem;
+  background-color: $light-grey;
+  padding: 4rem;
+  .info-card-section {
+    padding: 2rem 4rem;
+    // padding-left: 4rem;
+    // padding-right: 4rem;
+    &.info-card-section__bg {
+      background-color: $primary-grey;
+    }
+  }
+}
+
+.info-card-photos {
+  img {
+    display: block;
+    width: 100%;
+    &:last-of-type {
+      padding-top: 2rem;
+    }
+  }
+}
+
+.info-card-title {
+  text-align: center;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.info-card-text {
+  margin-bottom: 2rem;
+}
+
+.info-card-link {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 100;
+}
+
+

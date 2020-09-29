@@ -1,0 +1,56 @@
+@import './typography.scss';
+@import './colors.scss';
+@import './header.scss';
+@import './animations.scss';
+
+@import './sections.scss';
+@import './info-card.scss';
+@import './blog.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.application-container {
+  font-family: 'Fira Sans';
+  font-weight: 300;
+  color: #fff;
+  // max-width: 1920px;
+  // margin: 0 auto;
+}
+
+.content {
+  min-height: calc(100vh - 14rem);
+  color: #000;
+}
+
+.width-container {
+  width: 80%;
+  max-width: 1550px;
+  margin: 0 auto;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.link-default {
+  color: #fff;
+  transition: color 0.3s;
+  &:hover {
+    text-decoration: none;
+    transition: color 0.3s;
+    color: gold;
+  }
+}
+
+.link-black {
+  @extend .link-default;
+  color: #000;
+}
+
+.shadowed {
+  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.4);
+}
