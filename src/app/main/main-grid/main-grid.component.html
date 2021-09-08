@@ -1,29 +1,9 @@
 <div class="text-overlay">
   <img src="assets/images/1.jpg">
   <!-- <div class="bg-image"></div> -->
-  <h1 class="text-overlay-title">Lorem, ipsum dolor.</h1>
+  <h1 class="text-overlay-title" (click)="clickTitle()">Lorem, ipsum dolor.</h1>
 </div>
 <div class="width-container">
-  <div class="info-card">
-    <div class="row">
-      <div class="col-sm-7 info-card-section">
-        <h2 class="info-card-title">
-          Lorem, ipsum.
-        </h2>
-        <p class="info-card-text">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse sed tempora animi enim ducimus. Assumenda iste iusto dolore quo, nemo modi a. Odit aliquid recusandae accusamus ullam, ipsum nihil, expedita quidem dolor totam quo commodi excepturi officia tempora quam perferendis.
-        </p>
-        <a href="#" class="link-black info-card-link">
-          Контакти
-        </a>
-      </div>
-      <div class="col-sm-5 info-card-section info-card-section__bg shadowed">
-        <div class="info-card-photos">
-          <img src="assets/images/1.jpg" alt="">
-          <img src="assets/images/1.jpg" alt="">
-        </div>
-      </div>
-    </div>
-  </div>
-  <app-blog-grid></app-blog-grid>
+  <app-main-info-card></app-main-info-card>
+  <app-blog-grid [title]="title" [num]="num" [obj]="obj"></app-blog-grid>
 </div>
