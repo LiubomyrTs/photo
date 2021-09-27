@@ -1,0 +1,7 @@
+<div class="app-alerts-list">
+  <div class="app-alert app-fade-out" *ngFor="let alert of alerts | keyvalue">
+    <span class="app-close" (click)="handleClose(alert.key)">+</span>
+    <h5 class="app-alert-header">Увага!</h5>
+    <div class="app-alert-content">{{ alert.value.text }}</div>
+  </div>
+</div>

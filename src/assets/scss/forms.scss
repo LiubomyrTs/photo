@@ -1,0 +1,16 @@
+.application-container {
+  label {
+    font-size: 0.8rem;
+    margin-bottom: .2rem;
+  }
+
+  .form-control {
+    border-radius: 0;
+    border-color: black;
+    color: black;
+    font-weight: 300;
+    ::placeholder {
+      color: $light-grey;
+    }
+  }
+}

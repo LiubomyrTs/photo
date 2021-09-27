@@ -1,0 +1,35 @@
+.app-alerts-list {
+  position: fixed;
+  top: 1rem;
+  z-index: 5000;
+  right: 1rem;
+
+  .app-alert {
+    &.app-fade-out {
+      animation-name: fadeOut;
+      animation-duration: 30s;
+    }
+
+    position: relative;
+    margin-bottom: 1rem;
+    color: #fff;
+    padding: 1em;
+    background-color: rgba($color: green, $alpha: 0.7);
+    border-radius: 2px;
+    width: 20rem;
+  }
+
+  .app-close {
+    position: absolute;
+    top: 0;
+    right: .8rem;
+    transform: rotate(45deg);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; };
+  to { opacity: 0; }
+}

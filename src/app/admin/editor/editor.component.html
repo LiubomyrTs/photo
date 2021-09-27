@@ -1,0 +1,11 @@
+<h1>sdasd</h1>
+
+<form [formGroup]="form" (ngSubmit)="handleSubmit()">
+  <editor
+    formControlName="editor"
+    [apiKey]="apiKey"
+    [init]="init"
+  ></editor>
+  <input type="number" formControlName="numberOfPhotos">
+  <input type="submit" value="Submit">
+</form>

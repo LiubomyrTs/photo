@@ -1,23 +1,26 @@
 @import './typography.scss';
-@import './colors.scss';
+@import './variables.scss';
 @import './header.scss';
 @import './animations.scss';
 
 @import './sections.scss';
 @import './info-card.scss';
 @import './blog.scss';
+@import './forms.scss';
+@import './buttons.scss';
+@import './alerts.scss';
 
 body {
   margin: 0;
   padding: 0;
+  color: #fff;
 }
 
 .application-container {
-  font-family: 'Fira Sans';
+  font-family: 'Fira Sans'!important;
   font-weight: 300;
-  color: #fff;
-  // max-width: 1920px;
-  // margin: 0 auto;
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
 .content {

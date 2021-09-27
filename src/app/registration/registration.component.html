@@ -1,0 +1,80 @@
+<div class="form-container my-4">
+  <h1>Реєстрація</h1>
+  <form #ngForm="ngForm" (submit)="handleSubmit()" [formGroup]="form">
+    <div class="form-group">
+      <label for="name">Ім'я</label>
+      <input
+        class="form-control"
+        type="text"
+        id="name"
+        formControlName="name"
+        placeholder="Імя"
+        required
+        minlength="2"
+        maxlength="30"
+      >
+      <app-form-control-errors controlName="name" [ngForm]="ngForm"></app-form-control-errors>
+    </div>
+    <div class="form-group">
+      <label for="email">email</label>
+      <input
+        required
+        email
+        class="form-control"
+        type="email"
+        id="email"
+        formControlName="email"
+        placeholder="email"
+        minlength="2"
+        maxlength="30"
+      >
+      <app-form-control-errors controlName="email" [ngForm]="ngForm"></app-form-control-errors>
+    </div>
+    <div class="form-group">
+      <label for="username">Логін</label>
+      <input
+        required
+        class="form-control"
+        type="text"
+        id="username"
+        formControlName="username"
+        placeholder="Логін"
+        minlength="2"
+        maxlength="30"
+      >
+      <app-form-control-errors controlName="username" [ngForm]="ngForm"></app-form-control-errors>
+    </div>
+    <div class="form-group">
+      <label for="password">Пароль</label>
+      <input
+        required
+        class="form-control"
+        type="password"
+        id="password"
+        formControlName="password"
+        placeholder="Пароль"
+        minlength="2"
+        maxlength="30"
+      >
+      <app-form-control-errors controlName="password" [ngForm]="ngForm"></app-form-control-errors>
+    </div>
+    <div class="form-group">
+      <label for="password">Підтвердіть пароль</label>
+      <input
+        required
+        class="form-control"
+        type="password"
+        id="password"
+        formControlName="confirm_password"
+        placeholder="Підтвердіть пароль"
+      >
+      <app-form-control-errors controlName="confirm_password" [ngForm]="ngForm"></app-form-control-errors>
+      <small
+        *ngIf="form.errors && form.errors.confirmPassword && ngForm.submitted"
+        class="form-text text-danger"
+        translate
+      >Паролі не співпадають</small>
+    </div>
+    <button type="submit" class="app-submit-btn">Зареєструватись</button>
+  </form>
+</div>

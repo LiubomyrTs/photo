@@ -1,4 +1,5 @@
 import { Component, OnInit, OnChanges, DoCheck, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { ExperimentalService } from 'src/app/experimental.sevice';
 
 @Component({
   selector: 'app-main-grid',
@@ -7,6 +8,7 @@ import { Component, OnInit, OnChanges, DoCheck, ChangeDetectionStrategy, ChangeD
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainGridComponent implements OnInit, OnChanges, DoCheck {
+  content = '';
   title = 'Блог';
   num = 1;
   obj = {
@@ -15,14 +17,12 @@ export class MainGridComponent implements OnInit, OnChanges, DoCheck {
   }
 
   constructor(
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private experimentalService: ExperimentalService
   ) { }
 
   ngOnInit(): void {
-    // setInterval(() => {
-    //   this.num = this.num * 2 ** 2;
-    //   // this.cd.markForCheck();
-    // }, 2000);
+    this.content = this.experimentalService.fetch();
   }
 
   ngOnChanges() {
