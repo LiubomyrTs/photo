@@ -11,8 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { ExperimentalService } from 'src/app/experimental.sevice';
 import { SharedModule } from 'src/app/shared/shared.module';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
+import { DomainInterceptor } from 'src/app/core/interceptors/domain.interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AuthService } from 'src/app/services/auth.service';
   ],
   providers: [
     AuthService,
-    ExperimentalService
+    ExperimentalService,
+    { provide: HTTP_INTERCEPTORS, useClass: DomainInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

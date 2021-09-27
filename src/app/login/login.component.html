@@ -1,0 +1,36 @@
+<div class="form-container my-4">
+  <h1>Увійти</h1>
+  <form #ngForm="ngForm" (submit)="handleSubmit()" [formGroup]="form">
+    <div class="form-group">
+      <label for="username">Логін</label>
+      <input
+        required
+        class="form-control"
+        type="text"
+        id="username"
+        formControlName="username"
+        placeholder="Логін"
+        minlength="2"
+        maxlength="30"
+      >
+      <app-form-control-errors controlName="username" [ngForm]="ngForm"></app-form-control-errors>
+    </div>
+    <div class="form-group">
+      <label for="password">Пароль</label>
+      <input
+        required
+        class="form-control"
+        type="password"
+        id="password"
+        formControlName="password"
+        placeholder="Пароль"
+        minlength="2"
+        maxlength="30"
+      >
+      <app-form-control-errors controlName="password" [ngForm]="ngForm"></app-form-control-errors>
+    </div>
+    <div class="button-group">
+      <button type="submit" class="app-btn app-submit-btn">Увійти</button>
+    </div>
+  </form>
+</div>

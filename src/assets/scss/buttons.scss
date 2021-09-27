@@ -1,11 +1,16 @@
-.app-submit-btn {
-  color: $primary-grey;
+.app-btn {
   font-weight: 300;
-  border: 1px solid black;
+  color: $primary-grey;
   transition: all 0.1s ease-out;
+  text-decoration: none;
   padding: .375rem 1.75rem;
-  background: none;
   &:hover {
     color: black;
+    text-decoration: none;
   }
+}
+
+.app-submit-btn {
+  border: 1px solid black;
+  background: none;
 }

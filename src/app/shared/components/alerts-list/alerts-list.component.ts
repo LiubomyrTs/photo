@@ -1,4 +1,8 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, ChangeDetectorRef, ChangeDetectionStrategy, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
+import { ALERT_TYPES } from 'src/app/shared/enums/alert-types.enum';
+import { AlertsService } from 'src/app/shared/services/alert.service';
+import { Observable, timer, of } from 'rxjs';
+import { tap, delay, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-alerts-list',
@@ -6,23 +10,25 @@ import { Component, OnInit, Injectable } from '@angular/core';
   styleUrls: ['./alerts-list.component.scss'],
 })
 
-@Injectable({
-  providedIn: 'root'
-})
 export class AlertsListComponent implements OnInit {
   alerts = new Map();
-
-  constructor() { }
+  constructor(
+    private alertService: AlertsService,
+  ) {}
 
   ngOnInit(): void {
-
+    this.alertService.alerts
+      .pipe(
+        map((alert) => {
+          const key = (new Date()).getTime();
+          this.alerts.set(key, alert);
+          return key;
+        }),
+        delay(5000),
+      ).subscribe(this.handleClose.bind(this));
   }
 
-  showAlert(type, text) {
-    this.alerts.set((new Date()).getTime(), { type, text })
-  }
-
-  handleClose(key) {
+  handleClose(key: number) {
     this.alerts.delete(key);
   }
 }

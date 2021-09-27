@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
@@ -11,14 +11,10 @@ export class AuthService {
     private http: HttpClient,
   ) { }
 
-  // authenticateUser(user) {
-  //   let headers = new Headers();
-  //   headers.append('Content-Type', 'application/json');
-  //   return this.http.post('users/authenticate', user, { headers })
-  //     .pipe(
-  //       map(res => res.json())
-  //     )
-  // }
+  authenticateUser(user) {
+    return this.http.post('users/authenticate', user)
+      .pipe(tap(console.log));
+  }
 
   // getProfile() {
   //   let headers = new Headers();
@@ -44,9 +40,7 @@ export class AuthService {
   // }
 
   registerUser(user) {
-    let headers = new Headers();
-    // headers.append('Content-Type', 'application/json');
-    return this.http.post('users/register', user)
+    return this.http.post('users/register', user);
   }
 
   // loggedIn() {

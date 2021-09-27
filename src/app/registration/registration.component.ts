@@ -1,19 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, ValidatorFn, ValidationErrors, FormGroup } from '@angular/forms';
+
+import { AlertsService } from 'src/app/shared/services/alert.service';
+import { ALERT_TYPES } from 'src/app/shared/enums/alert-types.enum';
 import { AuthService } from 'src/app/services/auth.service';
-import { AlertsListComponent } from 'src/app/shared/components/alerts-list/alerts-list.component';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.scss']
+  styleUrls: ['./registration.component.scss'],
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent {
 
   constructor(
-    private formBuilder: FormBuilder,
+    private alertsService: AlertsService,
     private authService: AuthService,
-    private alertService: AlertsListComponent
+    private formBuilder: FormBuilder,
+    private router: Router
   ) { }
 
   form = this.formBuilder.group({
@@ -31,9 +35,6 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-  }
-
   handleSubmit() {
     if (this.form.invalid) {
       return;
@@ -42,9 +43,9 @@ export class RegistrationComponent implements OnInit {
     const user = this.form.value;
     delete user.confirm_password;
     this.authService.registerUser(this.form.value)
-      .subscribe((response) => {
-        console.log(response);
-        this.alertService.showAlert('success', 'Реєстрація пройшла успішно');
+      .subscribe(() => {
+        this.alertsService.showAlert(ALERT_TYPES.SUCCESS, 'Вас успішно зареєстровано!');
+        this.router.navigate(['/login']);
       });
   }
 }
