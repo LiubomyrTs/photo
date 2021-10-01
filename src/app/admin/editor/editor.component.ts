@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { ExperimentalService } from 'src/app/experimental.sevice';
 
 @Component({
   selector: 'app-editor',
@@ -59,7 +58,6 @@ export class EditorComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private experimentalService: ExperimentalService
   ) { }
 
   ngOnInit(): void {
@@ -68,7 +66,6 @@ export class EditorComponent implements OnInit {
 
   handleSubmit() {
     const html = this.form.get('editor').value;
-    this.experimentalService.save(html);
     this.loaded.emit('loaded');
   }
 }

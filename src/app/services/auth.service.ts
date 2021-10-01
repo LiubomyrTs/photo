@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { map, tap } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class AuthService {
@@ -13,39 +13,35 @@ export class AuthService {
 
   authenticateUser(user) {
     return this.http.post('users/authenticate', user)
-      .pipe(tap(console.log));
+      .pipe(
+        tap((res: any) => {
+          this.storeUserData(res.token, res.user)
+        })
+      );
   }
 
-  // getProfile() {
-  //   let headers = new Headers();
-  //   this.loadToken();
-  //   headers.append('Authorization', this.authToken);
-  //   headers.append('Content-Type', 'application/json');
-  //   return this.http.get('users/profile', { headers })
-  //     .pipe(
-  //       map(res => res.json())
-  //     )
-  // }
+  private loadToken() {
+    const token = localStorage.getItem('id_token');
+    this.authToken = token;
+  }
 
-  // loadToken() {
-  //   const token = localStorage.getItem('id_token');
-  //   this.authToken = token;
-  // }
-
-  // storeUserData(token, user) {
-  //   localStorage.setItem('id_token', token);
-  //   localStorage.setItem('user', JSON.stringify(user));
-  //   this.authToken = token;
-  //   this.user = user;
-  // }
+  storeUserData(token, user) {
+    localStorage.setItem('id_token', token);
+    localStorage.setItem('user', JSON.stringify(user));
+    this.authToken = token;
+    this.user = user;
+  }
 
   registerUser(user) {
     return this.http.post('users/register', user);
   }
 
-  // loggedIn() {
-  //   return tokenNotExpired('id_token');
-  // }
+  profile() {
+    let headers = new HttpHeaders();
+    this.loadToken();
+    headers = headers.append('Authorization', this.authToken);
+    return this.http.get('users/profile', { headers });
+  }
 
   // logout() {
   //   this.authToken = null;

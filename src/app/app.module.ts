@@ -9,7 +9,6 @@ import { MainModule } from 'src/app/main/main.module';
 import { BlogModule } from 'src/app/blog/blog.module';
 import { FormsModule } from '@angular/forms';
 import { EditorModule } from '@tinymce/tinymce-angular';
-import { ExperimentalService } from 'src/app/experimental.sevice';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
@@ -33,7 +32,6 @@ import { DomainInterceptor } from 'src/app/core/interceptors/domain.interceptor'
   ],
   providers: [
     AuthService,
-    ExperimentalService,
     { provide: HTTP_INTERCEPTORS, useClass: DomainInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]

@@ -1,5 +1,4 @@
 import { Component, OnInit} from "@angular/core";
-import { ExperimentalService } from 'src/app/experimental.sevice';
 
 @Component({
   selector: "app-admin-dashboard",
@@ -8,11 +7,9 @@ import { ExperimentalService } from 'src/app/experimental.sevice';
 })
 export class AdminDashboardComponent implements OnInit {
   content = '';
-  constructor(private experimentalService: ExperimentalService) {}
+  constructor() {}
 
   loadContent() {
-    this.content = this.experimentalService.fetch() || '';
-    console.log(this.content);
   }
 
   ngOnInit(): void {
