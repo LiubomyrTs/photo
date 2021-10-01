@@ -1,5 +1,5 @@
 import {FormsModule, ReactiveFormsModule, FormBuilder, NgForm} from '@angular/forms';
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {TranslateService, TranslateParser, TranslateModule} from '@ngx-translate/core';
 
 import {TranslateParserMock} from 'app/core/mocks/translate-parser.mock';
@@ -12,7 +12,7 @@ describe('FormControlErrorsComponent', () => {
   let component: FormControlErrorsComponent;
   let fixture: ComponentFixture<FormControlErrorsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       providers: [
         FormBuilder,
