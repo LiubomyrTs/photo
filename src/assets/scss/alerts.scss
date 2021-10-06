@@ -13,10 +13,22 @@
     position: relative;
     margin-bottom: 1rem;
     color: #fff;
+    
     padding: 1em;
-    background-color: rgba($color: green, $alpha: 0.7);
     border-radius: 2px;
     width: 20rem;
+
+    &.app-alert-success {
+      background-color: rgba($color: green, $alpha: 0.7);
+    }
+
+    &.app-alert-error {
+      background-color: rgba($color: red, $alpha: 0.7);
+    }
+
+    &.app-alert-danger {
+      background-color: rgba($color: orange, $alpha: 0.7);
+    }
   }
 
   .app-close {

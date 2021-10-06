@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-editor',
@@ -7,6 +7,8 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./editor.component.scss']
 })
 export class EditorComponent implements OnInit {
+  form: FormGroup;
+
   @Output()
   loaded = new EventEmitter();
   apiKey: string = 'kmyakb9f85t24p2hq3ks4oyha7l74crtdiev55jdwe7yjaid';
@@ -51,14 +53,14 @@ export class EditorComponent implements OnInit {
     ],
   };
 
-  form = this.fb.group({
-    editor: '',
-    numberOfPhotos: ''
-  });
-
   constructor(
     private fb: FormBuilder,
-  ) { }
+  ) {
+    this.form = this.fb.group({
+      editor: '',
+      numberOfPhotos: ''
+    });
+  }
 
   ngOnInit(): void {
     

@@ -4,7 +4,6 @@ import { Component, OnInit, OnChanges, DoCheck, ChangeDetectionStrategy, ChangeD
   selector: 'app-main-grid',
   templateUrl: './main-grid.component.html',
   styleUrls: ['./main-grid.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainGridComponent implements OnInit, OnChanges, DoCheck {
   content = '';

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
 import { DomainInterceptor } from 'src/app/core/interceptors/domain.interceptor';
+import { GlobalErrorHandler } from 'src/app/shared/handlers/global-error.handler';
+import { AlertService } from 'src/app/shared/services/alert.service';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { DomainInterceptor } from 'src/app/core/interceptors/domain.interceptor'
   ],
   providers: [
     AuthService,
+    { provide: ErrorHandler, useClass: GlobalErrorHandler, deps: [AlertService] },
     { provide: HTTP_INTERCEPTORS, useClass: DomainInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]

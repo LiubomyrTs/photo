@@ -6,7 +6,7 @@ import { Alert } from 'src/app/shared/models/alert.model';
 @Injectable({
   providedIn: 'root'
 })
-export class AlertsService {
+export class AlertService {
   alerts: Subject<Alert> = new Subject();
 
   constructor() {}

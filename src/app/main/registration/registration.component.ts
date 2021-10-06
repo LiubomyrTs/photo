@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, ValidatorFn, ValidationErrors, FormGroup } from '@angular/forms';
 
-import { AlertsService } from 'src/app/shared/services/alert.service';
+import { AlertService } from 'src/app/shared/services/alert.service';
 import { ALERT_TYPES } from 'src/app/shared/enums/alert-types.enum';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -12,21 +12,22 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent {
+  form: FormGroup;
 
   constructor(
-    private alertsService: AlertsService,
+    private alertsService: AlertService,
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private router: Router
-  ) { }
-
-  form = this.formBuilder.group({
-    name: '',
-    email: '',
-    username: '',
-    password: '',
-    confirm_password: '',
-  }, { validator: this.confirmPasswordValidator() });
+  ) {
+    this.form = this.formBuilder.group({
+      name: '',
+      email: '',
+      username: '',
+      password: '',
+      confirm_password: '',
+    }, { validator: this.confirmPasswordValidator() });
+  }
 
   confirmPasswordValidator(): ValidatorFn {
     return (formGroup: FormGroup): ValidationErrors | null => {

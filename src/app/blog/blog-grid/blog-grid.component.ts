@@ -3,7 +3,6 @@ import { Component, OnInit, Input, OnChanges, DoCheck, ChangeDetectionStrategy, 
 @Component({
   selector: 'app-blog-grid',
   templateUrl: './blog-grid.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogGridComponent implements OnInit, OnChanges, DoCheck {
   @Input() title = '';
@@ -28,7 +27,6 @@ export class BlogGridComponent implements OnInit, OnChanges, DoCheck {
   }
 
   handleClick() {
-    console.log('BlogGridComponent', 'handleClick')
-    this.cd.detach();
+
   }
 }

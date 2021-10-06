@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { AlertsService } from 'src/app/shared/services/alert.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { AlertService } from 'src/app/shared/services/alert.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { ALERT_TYPES } from 'src/app/shared/enums/alert-types.enum';
 import { Router } from '@angular/router';
@@ -11,18 +11,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  form = this.formBuilder.group({
-    username: '',
-    password: ''
-  });
+  form: FormGroup;
 
   constructor(
-    private alertService: AlertsService,
+    private alertService: AlertService,
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private router: Router
-  ) { }
+  ) {
+    this.form = this.formBuilder.group({
+      username: '',
+      password: ''
+    });
+  }
 
   ngOnInit(): void {
   }
