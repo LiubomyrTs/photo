@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { USER_ROLES } from 'src/app/auth/user-roles.enum';
 
 @Injectable()
 export class AuthService {
@@ -10,6 +11,15 @@ export class AuthService {
   constructor(
     private http: HttpClient,
   ) { }
+
+  isUserInRole(role: USER_ROLES) {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      return user.role === role;
+    }
+
+    return false;
+  }
 
   authenticateUser(user) {
     return this.http.post('users/authenticate', user)
@@ -42,10 +52,4 @@ export class AuthService {
     headers = headers.append('Authorization', this.authToken);
     return this.http.get('users/profile', { headers });
   }
-
-  // logout() {
-  //   this.authToken = null;
-  //   this.user = null;
-  //   localStorage.clear();
-  // }
 }

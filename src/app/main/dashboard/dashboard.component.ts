@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
-import { map, switchMap } from 'rxjs/operators';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,7 +15,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.authService.profile()
       .subscribe((profile: any) => {
-        this.user = profile.user;
         console.log(profile);
       })
   }

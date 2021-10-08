@@ -1,7 +1,6 @@
 import {ErrorHandler, Injectable} from '@angular/core';
 import { AlertService } from 'src/app/shared/services/alert.service';
 import { ALERT_TYPES } from 'src/app/shared/enums/alert-types.enum';
-import * as _ from 'lodash';
 
 interface Message {
   error: string;
@@ -28,8 +27,13 @@ export class GlobalErrorHandler extends ErrorHandler {
   }
 
   getErrorMessages(error: any): Message[] {
+    console.log(error);
     if (!error) {
       return [{ error: 'Sorry, unknown error has occurred :(' }];
+    }
+
+    if (error.error?.msg) {
+      return [{ error: error.error.msg }];
     }
 
     if (error.message) {

@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/auth/auth.service';
 import { DomainInterceptor } from 'src/app/core/interceptors/domain.interceptor';
 import { GlobalErrorHandler } from 'src/app/shared/handlers/global-error.handler';
 import { AlertService } from 'src/app/shared/services/alert.service';
