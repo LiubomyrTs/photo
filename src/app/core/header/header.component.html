@@ -25,7 +25,7 @@
         <a class="link-default" href="#">Відгуки</a>
       </div>
       <div class="navigation-link">
-        <a a class="link-default" href="#">Блог</a>
+        <a [routerLink]="['/blog']" class="link-default" href="#">Блог</a>
       </div>
       <div class="navigation-link">
         <a class="link-default" href="#">Контакти</a>
@@ -45,7 +45,7 @@
         <a href="#" class="link-default"><i class="fa fa-telegram"></i></a>
       </div>
     </div>
-    <div class="col-auto row justify-content-end">
+    <div class="col-auto row justify-content-end" *ngIf="!isLoggedIn; else dashboardLink">
       <div class="navigation-link border-right">
         <a class="link-default" [routerLink]="['/registration']">Зареєструватись</a>
       </div>
@@ -53,5 +53,16 @@
         <a class="link-default" [routerLink]="['/login']">Увійти</a>
       </div>
     </div>
+    <ng-template #dashboardLink>
+      <div class="col-auto row justify-content-end">
+        <div class="navigation-link border-right">
+          <a class="link-default" [routerLink]="dashboardUrl">Кабінет</a>
+        </div>
+        <div class="navigation-link">
+          <a href="javascript:void(0)" class="link-default" (click)="logout()">Вийти</a>
+        </div>
+      </div>
+    </ng-template>
+    
   </div>
 </header>

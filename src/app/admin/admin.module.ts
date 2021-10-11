@@ -6,18 +6,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AdminDashboardComponent } from 'src/app/admin/admin-dashboard/admin-dashboard.component';
 import { EditorComponent } from 'src/app/admin/editor/editor.component';
+import { UserTableComponent } from 'src/app/admin/user/user-table/user-table.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AdminDashboardComponent
+    component: AdminDashboardComponent,
+    children: [{
+      path: 'users',
+      component: UserTableComponent
+    }],
   }
 ];
 
 @NgModule({
   declarations: [
     AdminDashboardComponent,
-    EditorComponent
+    EditorComponent,
+    UserTableComponent
   ],
   imports: [
     CommonModule,

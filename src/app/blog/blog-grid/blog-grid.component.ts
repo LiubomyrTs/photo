@@ -6,15 +6,19 @@ import { Component, OnInit, Input, OnChanges, DoCheck, ChangeDetectionStrategy, 
 })
 export class BlogGridComponent implements OnInit, OnChanges, DoCheck {
   @Input() title = '';
+  @Input() mainPage = false;
   @Input() num: number;
   @Input() obj: any;
 
-  blogs = [1,2,3];
+  blogs = [1,2,3, 1,2,2,2,2,2,2,2,2,2,2];
   constructor(
     private cd: ChangeDetectorRef,
   ) { }
 
   ngOnInit(): void {
+    if (this.mainPage) {
+      this.blogs = [1,2,3];
+    }
     console.log(this.title);
   }
 

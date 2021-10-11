@@ -1,11 +1,11 @@
-import { Component, OnInit, OnChanges, DoCheck, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-main-grid',
   templateUrl: './main-grid.component.html',
   styleUrls: ['./main-grid.component.scss'],
 })
-export class MainGridComponent implements OnInit, OnChanges, DoCheck {
+export class MainGridComponent implements OnInit {
   content = '';
   title = 'Блог';
   num = 1;
@@ -14,26 +14,8 @@ export class MainGridComponent implements OnInit, OnChanges, DoCheck {
     surname: '321'
   }
 
-  constructor(
-    private cd: ChangeDetectorRef,
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
-  }
-
-  ngOnChanges() {
-    console.log('SOMETHING CHANGED', 'MainGridComponent');
-  }
-
-  ngDoCheck() {
-    console.log('ngDoCheck', 'MainGridComponent');
-  }
-
-  clickTitle() {
-    // this.cd.detach();
-    // this.num = 5;
-    this.obj.name = 'normal name';
-    this.obj = Object.assign({}, this.obj);
-    console.log('clickTitle');
   }
 }

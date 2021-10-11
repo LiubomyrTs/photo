@@ -1,10 +1,10 @@
 <div class="application-container">
   <app-alerts-list></app-alerts-list>
-  <app-header></app-header>
+  <app-header *ngIf="layout === LAYOUT.MAIN"></app-header>
   <div class="content">
     <div class="width-container">
       <router-outlet></router-outlet>
     </div>
   </div>
-  <app-footer></app-footer>
+  <app-footer *ngIf="layout === LAYOUT.MAIN"></app-footer>
 </div>

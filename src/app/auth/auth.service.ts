@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { map, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { USER_ROLES } from 'src/app/auth/user-roles.enum';
+import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
@@ -10,7 +12,16 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-  ) { }
+    private router: Router,
+  ) {
+    this.loadToken();
+  }
+
+  loggedInSubject = new BehaviorSubject<boolean>(this.isLoggedIn());
+
+  get dashboardUrl() {
+    return this.isUserInRole(USER_ROLES.ADMIN) ? ['/admin'] : ['/dashboard'];
+  }
 
   isUserInRole(role: USER_ROLES) {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -19,6 +30,14 @@ export class AuthService {
     }
 
     return false;
+  }
+
+  isLoggedIn() {
+    if (localStorage.getItem('user')) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   authenticateUser(user) {
@@ -30,8 +49,17 @@ export class AuthService {
       );
   }
 
+  logout() {
+    localStorage.removeItem('user');
+    localStorage.removeItem('id_token');
+    this.authToken = null;
+    this.user = null;
+    this.router.navigate(['/']);
+    this.loggedInSubject.next(false);
+  }
+
   private loadToken() {
-    const token = localStorage.getItem('id_token');
+    const token = localStorage.getItem('id_token') || null;
     this.authToken = token;
   }
 
@@ -48,7 +76,6 @@ export class AuthService {
 
   profile() {
     let headers = new HttpHeaders();
-    this.loadToken();
     headers = headers.append('Authorization', this.authToken);
     return this.http.get('users/profile', { headers });
   }

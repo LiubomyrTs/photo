@@ -38,7 +38,8 @@ export class LoginComponent implements OnInit {
     this.authService.authenticateUser(user)
       .subscribe((response: {success: boolean, user: any, token: string}) => {
         this.alertService.showAlert(ALERT_TYPES.SUCCESS, 'Ви успішно увійшли в систему');
-        this.router.navigate(['/admin']);
+        this.authService.loggedInSubject.next(true);
+        this.router.navigate(this.authService.dashboardUrl);
       })
   }
 }
