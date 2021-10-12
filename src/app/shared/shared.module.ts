@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AlertsListComponent } from 'src/app/shared/components/alerts-list/alerts-list.component';
 import { FormControlErrorsComponent } from 'src/app/shared/components/form-control-errors/form-control-errors.component';
 import { GeneratedContentComponent } from './components/generated-content/generated-content.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { GeneratedContentComponent } from './components/generated-content/genera
     FormControlErrorsComponent,
     GeneratedContentComponent,
     SafeHtmlPipe,
+    FileUploadComponent,
   ],
   imports: [
     CommonModule,
@@ -24,6 +26,7 @@ import { GeneratedContentComponent } from './components/generated-content/genera
     FormControlErrorsComponent,
     GeneratedContentComponent,
     SafeHtmlPipe,
+    FileUploadComponent,
   ],
   providers: [
   ]

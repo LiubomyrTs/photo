@@ -1,0 +1,59 @@
+@import "src/assets/scss/variables";
+
+input {
+  display: none;
+}
+
+.app-file-upload-dropzone {
+  align-items: center;
+  background: $primary-grey;
+  border: 1px solid $light-black;
+  border-radius: 5px;
+  // color: $primary;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  font-weight: bold;
+  height: 100%;
+  height: 10px; // Workaround for IE align vertically
+  justify-content: center;
+  min-height: 80px;
+  opacity: 1;
+  padding: 1rem;
+
+  &.error {
+    background-color: $danger;
+    // border-color: $color-danger-hover;
+    color: #fff;
+  }
+
+  &.dragover {
+    background: $primary;
+    // border-color: $color-primary-light;
+    color: #fff;
+  }
+}
+
+.app-file-upload-item {
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 2em;
+  margin-bottom: 1rem;
+  padding: 5px 0.75rem;
+  height: 38px;
+
+  em.fa {
+    color: $primary;
+  }
+
+  a {
+    color: blue;
+    text-decoration: none;
+    text-transform: inherit;
+  }
+}
+
+.app-file-upload-item-delete {
+  cursor: pointer;
+}

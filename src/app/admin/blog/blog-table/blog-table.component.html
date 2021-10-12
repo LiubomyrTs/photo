@@ -1,0 +1,19 @@
+<a [routerLink]="['add']">Додати блог</a>
+<table class="table table-bordered">
+  <tr>
+    <th>№</th>
+    <th>Заголовок</th>
+    <th>Підзаголовок</th>
+    <th>Контент?</th>
+    <th>Обкладинка</th>
+    <th>Дата створення</th>
+  </tr>
+  <tr *ngFor="let blog of blogs; let i = index">
+    <td>{{ i + 1 }}.</td>
+    <td>{{ blog.title }}</td>
+    <td>{{ blog.subtitle }}</td>
+    <td>{{ blog.content }}</td>
+    <td><img [src]="serverUrl + blog.cover" width="100" alt=""></td>
+    <td>{{ blog.created_at | date: 'medium' }}</td>
+  </tr>
+</table>

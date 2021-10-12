@@ -1,0 +1,46 @@
+<div class="app-file-upload">
+  <div class="app-file-upload-item" *ngFor="let file of files; let i = index;">
+    <div class="row">
+      <div class="col-10">
+        <em class="fa fa-lg fa-file-text-o"></em>&nbsp;
+        <span *ngIf="!file.key">{{file.name}}</span>
+        <a 
+          *ngIf="file.key"
+          class="btn btn-link"
+          rel="noopener"
+          target="_blank"
+          [href]="'/api/files?key=' + file.key + (accessToken ? ('?access_token=' + accessToken) : '')"
+        >
+          {{file.name}}&nbsp;
+          <em class="fa fa-lg fa-eye"></em>
+        </a>
+      </div>
+      <div class="col-2 text-right app-file-upload-item-delete" (click)="handleFileDelete(i)">
+        <em class="fa fa-lg fa-times-circle"></em>
+      </div>
+    </div>
+  </div>
+  <label [ngClass]="{ required: required }">{{message}}</label>
+  <label
+    for="{{fileUploadId}}"
+    class="app-file-upload-dropzone"
+    [ngClass]="{ dragover: dragOverCounter > 0, error: !!fileUploadError }"
+  >
+    <div *ngIf="!fileUploadError">
+      <em class="fa fa-lg fa-paperclip"></em>&nbsp;
+      <span>{{dragzone}}</span>
+    </div>
+    <div *ngIf="!!fileUploadError">
+      <em class="fa fa-lg fa-times"></em>&nbsp;
+      <span>{{fileUploadError}}</span>
+    </div>
+  </label>
+  <small>Note: Allowed extensions are {{ allowedExtensions.join(' ') }} and file size up to {{5}} MB</small>
+  <input
+    #fileUpload
+    [attr.multiple]="multiple || null"
+    (change)="handleFileDrop($event.target.files)"
+    id="{{fileUploadId}}"
+    type="file"
+  />
+</div>

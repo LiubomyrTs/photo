@@ -15,6 +15,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 import { DomainInterceptor } from 'src/app/core/interceptors/domain.interceptor';
 import { GlobalErrorHandler } from 'src/app/shared/handlers/global-error.handler';
 import { AlertService } from 'src/app/shared/services/alert.service';
+import { AuthInterceptor } from 'src/app/core/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AlertService } from 'src/app/shared/services/alert.service';
     AuthService,
     { provide: ErrorHandler, useClass: GlobalErrorHandler, deps: [AlertService] },
     { provide: HTTP_INTERCEPTORS, useClass: DomainInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
