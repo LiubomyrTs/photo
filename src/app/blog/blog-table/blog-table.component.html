@@ -7,13 +7,17 @@
     <th>Контент?</th>
     <th>Обкладинка</th>
     <th>Дата створення</th>
+    <th></th>
   </tr>
   <tr *ngFor="let blog of blogs; let i = index">
     <td>{{ i + 1 }}.</td>
     <td>{{ blog.title }}</td>
     <td>{{ blog.subtitle }}</td>
-    <td>{{ blog.content }}</td>
+    <td><div class="table-blog-content" [innerHTML]="blog.content | safeHtml"></div></td>
     <td><img [src]="serverUrl + blog.cover" width="100" alt=""></td>
     <td>{{ blog.created_at | date: 'medium' }}</td>
+    <td>
+      <button class="btn btn-danger" (click)="handleDelete(blog._id)">Видалити</button>
+    </td>
   </tr>
 </table>

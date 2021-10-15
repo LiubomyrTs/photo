@@ -1,9 +1,11 @@
 <h1 *ngIf="!mainPage">Блог</h1>
 <div class="row my-4">
-  <div class="blog-card col-sm-4"  *ngFor="let blog of blogs">
-    <img src="assets/images/1.jpg" alt="">
-    <span>13.33.1111</span>
-    <h2 class="blog-title">Lorem, ipsum.</h2>
-    <p class="blog-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, inventore.</p>
+  <div class="blog-card col-sm-4" *ngFor="let blog of blogs" (click)="handleCardClick(blog._id)">
+    <div>
+      <img [appServerSrc]="blog.cover" alt="" style="width: 100%;">
+      <span>{{ blog.created_at | date: 'shortDate' }}</span>
+      <h2 class="blog-title">{{ blog.title }}</h2>
+      <p class="blog-description">{{ blog.subtitle }}</p>
+    </div>
   </div>
 </div>

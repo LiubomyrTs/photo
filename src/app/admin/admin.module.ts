@@ -7,8 +7,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { AdminDashboardComponent } from 'src/app/admin/admin-dashboard/admin-dashboard.component';
 import { EditorComponent } from 'src/app/admin/editor/editor.component';
 import { UserTableComponent } from 'src/app/admin/user/user-table/user-table.component';
-import { BlogTableComponent } from './blog/blog-table/blog-table.component';
-import { BlogFormComponent } from './blog/blog-form/blog-form.component';
+import { BlogTableComponent } from 'src/app/blog/blog-table/blog-table.component';
+import { BlogFormComponent } from 'src/app/blog/blog-form/blog-form.component';
+
 
 const routes: Routes = [
   {

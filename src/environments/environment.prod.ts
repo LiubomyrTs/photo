@@ -1,4 +1,4 @@
 export const environment = {
-  serverUrl: 'http://localhost:8080/',
+  serverUrl: 'https://powerful-badlands-49255.herokuapp.com/',
   production: true
 };

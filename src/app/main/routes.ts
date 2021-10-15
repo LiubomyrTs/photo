@@ -35,11 +35,4 @@ export const routes: Routes = [
       layout: LAYOUT.MAIN
     }
   },
-  {
-    path: 'blog',
-    component: BlogGridComponent,
-    data: {
-      layout: LAYOUT.MAIN
-    }
-  }
 ];

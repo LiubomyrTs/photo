@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogService } from 'src/app/admin/blog/services/blog.service';
-import { Blog } from 'src/app/admin/blog/interfaces/blog.interface';
+
 import { environment } from 'src/environments/environment';
+import { BlogService } from 'src/app/blog/services/blog.service';
+import { Blog } from 'src/app/blog/interfaces/blog.interface';
 
 @Component({
   selector: 'app-blog-table',
@@ -19,5 +20,9 @@ export class BlogTableComponent implements OnInit {
   ngOnInit(): void {
     this.blogService.getAll()
       .subscribe((blogs: Blog[]) => this.blogs = blogs);
+  }
+
+  handleDelete(id) {
+    this.blogService.delete(id).subscribe();
   }
 }

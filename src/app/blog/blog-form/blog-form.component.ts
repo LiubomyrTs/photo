@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { BlogService } from 'src/app/admin/blog/services/blog.service';
-import { Blog } from 'src/app/admin/blog/interfaces/blog.interface';
+
+import { Router } from '@angular/router';
+import { BlogService } from 'src/app/blog/services/blog.service';
+import { Blog } from 'src/app/blog/interfaces/blog.interface';
 
 @Component({
   selector: 'app-blog-form',
@@ -12,7 +14,8 @@ export class BlogFormComponent implements OnInit {
   form: FormGroup;
   constructor(
     private blogService: BlogService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router,
   ) {
     this.form  = this.formBuilder.group({
       title: '',
@@ -26,6 +29,9 @@ export class BlogFormComponent implements OnInit {
   }
 
   handleSubmit() {
+    if (this.form.invalid) {
+      return;
+    }
     const formData = new FormData();
 
     const blog = this.form.value;
@@ -36,7 +42,7 @@ export class BlogFormComponent implements OnInit {
     formData.append('content', blog.content);
 
     this.blogService.save(formData).subscribe((blog: Blog) => {
-      console.log(blog);
+      this.router.navigate(['admin', 'blogs']);
     });
   }
 }

@@ -1,36 +1,32 @@
 import { Component, OnInit, Input, OnChanges, DoCheck, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Blog } from 'src/app/blog/interfaces/blog.interface';
+import { BlogService } from 'src/app/blog/services/blog.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog-grid',
   templateUrl: './blog-grid.component.html',
 })
-export class BlogGridComponent implements OnInit, OnChanges, DoCheck {
+export class BlogGridComponent implements OnInit {
   @Input() title = '';
   @Input() mainPage = false;
   @Input() num: number;
   @Input() obj: any;
 
-  blogs = [1,2,3, 1,2,2,2,2,2,2,2,2,2,2];
+  blogs: Blog[] = [];
   constructor(
-    private cd: ChangeDetectorRef,
+    private router: Router,
+    private blogService: BlogService,
   ) { }
 
   ngOnInit(): void {
-    if (this.mainPage) {
-      this.blogs = [1,2,3];
-    }
-    console.log(this.title);
+    this.blogService.getAll()
+      .subscribe((blogs: Blog[]) => {
+        this.blogs = blogs;
+      });
   }
 
-  ngOnChanges() {
-    console.log('SOMETHING CHANGED', 'BlogGridComponent');
-  }
-
-  ngDoCheck() {
-    console.log('ngDoCheck', 'BlogGridComponent');
-  }
-
-  handleClick() {
-
+  handleCardClick(id) {
+    this.router.navigate(['blog', id]);
   }
 }

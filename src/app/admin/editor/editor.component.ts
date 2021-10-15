@@ -1,16 +1,24 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter, forwardRef, ViewChild } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.scss']
+  styleUrls: ['./editor.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => EditorComponent),
+      multi: true,
+    }
+  ]
 })
-export class EditorComponent implements OnInit {
-  form: FormGroup;
+export class EditorComponent implements OnInit, ControlValueAccessor {
+  val = '';
 
-  @Output()
-  loaded = new EventEmitter();
+  onChange: (data: any) => void;
+  onTouched: () => void;
+
   apiKey: string = 'kmyakb9f85t24p2hq3ks4oyha7l74crtdiev55jdwe7yjaid';
   init: Object = {
     content_style: `
@@ -31,8 +39,8 @@ export class EditorComponent implements OnInit {
       });
     },
     placeholder: "write something here",
-    plugins: "link, image",
-    toolbar: "image customInsertButton",
+    plugins: "link, image, lists, tabfocus",
+    toolbar: "image customInsertButton, numlist, bullist",
     style_formats: [
       {
         title: "Image Left",
@@ -54,20 +62,37 @@ export class EditorComponent implements OnInit {
   };
 
   constructor(
-    private fb: FormBuilder,
-  ) {
-    this.form = this.fb.group({
-      editor: '',
-      numberOfPhotos: ''
-    });
+  ) {}
+
+  set value(val) {
+    if( val !== undefined && this.val !== val){
+      this.val = val
+      this.onChange(val)
+      this.onTouched()
+      }
   }
 
   ngOnInit(): void {
-    
   }
 
-  handleSubmit() {
-    const html = this.form.get('editor').value;
-    this.loaded.emit('loaded');
+  handleModelChange(v: any) {
+    this.onChange(v);
+  }
+
+  handleModelTouched() {
+    this.onTouched();
+  }
+
+  writeValue(value: any){ 
+    this.value = value
+  }
+
+  registerOnChange(onChange: (data: any) => void) {
+    this.onChange = onChange;
+  }
+
+  registerOnTouched(onTouched: () => void) {
+    console.log('registerOnTouched');
+    this.onTouched = onTouched;
   }
 }

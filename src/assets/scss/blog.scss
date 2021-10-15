@@ -1,5 +1,9 @@
 .blog-card {
   text-align: center;
+
+  &:hover {
+    box-shadow: inset 1000px 1000px rgba($color: #000000, $alpha: .3);
+  }
   img {
     width: 100%;
   }
