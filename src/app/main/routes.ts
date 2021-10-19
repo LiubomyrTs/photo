@@ -1,10 +1,11 @@
 import { Routes } from '@angular/router';
-import { MainGridComponent } from 'src/app/main/main-grid/main-grid.component';
-import { RegistrationComponent } from 'src/app/main/registration/registration.component';
-import { LoginComponent } from 'src/app/main/login/login.component';
-import { DashboardComponent } from 'src/app/main/dashboard/dashboard.component';
+
 import { LAYOUT } from 'src/app/core/enums/layout.enum';
-import { BlogGridComponent } from 'src/app/blog/blog-grid/blog-grid.component';
+import { LoginComponent } from 'src/app/auth/components/login/login.component';
+import { RegistrationComponent } from 'src/app/auth/components/registration/registration.component';
+import { DashboardComponent } from 'src/app/main/components/dashboard/dashboard.component';
+import { MainGridComponent } from 'src/app/main/components/main-grid/main-grid.component';
+import { PortfolioGridComponent } from 'src/app/portfolio/components/portfolio-grid/portfolio-grid.component';
 
 export const routes: Routes = [
   {
@@ -35,4 +36,11 @@ export const routes: Routes = [
       layout: LAYOUT.MAIN
     }
   },
+  {
+    path: 'portfolio',
+    component: PortfolioGridComponent,
+    data: {
+      layout: LAYOUT.MAIN
+    }
+  }
 ];

@@ -1,9 +1,27 @@
 .blog-card {
   text-align: center;
 
-  &:hover {
-    box-shadow: inset 1000px 1000px rgba($color: #000000, $alpha: .3);
+  &:hover .blog-shadow-wrapper {
+    cursor: pointer;
+    display: block;
+    transition: all ease-out .4s;
   }
+
+  .blog-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .blog-shadow-wrapper {
+    transition: all ease-out .4s;
+    z-index: 2;
+    background-color: rgba($color: #000000, $alpha: 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+  }
+
   img {
     width: 100%;
   }

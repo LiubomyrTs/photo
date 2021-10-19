@@ -5,7 +5,9 @@ import { USER_ROLES } from 'src/app/auth/user-roles.enum';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
   authToken: any;
   user: any;

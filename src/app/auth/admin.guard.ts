@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
-import { AuthService } from 'src/app/auth/auth.service';
+import { Router, CanActivate, ActivatedRouteSnapshot } from '@angular/router';
+
 import { USER_ROLES } from 'src/app/auth/user-roles.enum';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 
 @Injectable({

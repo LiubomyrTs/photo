@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { AlertService } from 'src/app/shared/services/alert.service';
-import { AuthService } from 'src/app/auth/auth.service';
-
-import { ALERT_TYPES } from 'src/app/shared/enums/alert-types.enum';
 import { Router } from '@angular/router';
+
+import { AlertService } from 'src/app/shared/services/alert.service';
+import { ALERT_TYPES } from 'src/app/shared/enums/alert-types.enum';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-login',

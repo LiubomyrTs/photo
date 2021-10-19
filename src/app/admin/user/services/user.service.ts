@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AuthService } from 'src/app/auth/auth.service';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+
 import { User } from 'src/app/admin/user/interfaces/user.interface';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Injectable({
   providedIn: 'root'

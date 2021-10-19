@@ -1,11 +1,14 @@
 <nav class="navbar navbar-light bg-light">
-  <ul class="nav nav-pills">
+  <ul class="nav nav-pills no-base-styling">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/']">Головна</a>
+    </li>
     <li class="nav-item">
       <a class="nav-link" routerLinkActive="active" [routerLink]="['users']">Користувачі</a>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link"  routerLinkActive="active" [routerLink]="['portfolio']">Портфоліо</a>
-    </li>
+    </li> -->
     <li class="nav-item">
       <a class="nav-link"  routerLinkActive="active" [routerLink]="['blogs']">Блог</a>
     </li>

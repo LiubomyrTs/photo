@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BlogGridComponent } from 'src/app/blog/blog-grid/blog-grid.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { BlogViewComponent } from './blog-view/blog-view.component';
+import { BlogViewComponent } from 'src/app/blog/components/blog-view/blog-view.component';
+import { BlogGridComponent } from 'src/app/blog/components/blog-grid/blog-grid.component';
 
 @NgModule({
   imports: [

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, forwardRef, ViewChild } from '@angular/core';
+import { Component, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -40,7 +40,7 @@ export class EditorComponent implements OnInit, ControlValueAccessor {
     },
     placeholder: "write something here",
     plugins: "link, image, lists, tabfocus",
-    toolbar: "image customInsertButton, numlist, bullist",
+    toolbar: "image numlist bullist",
     style_formats: [
       {
         title: "Image Left",

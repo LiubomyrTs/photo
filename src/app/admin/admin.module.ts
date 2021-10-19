@@ -4,11 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { AdminDashboardComponent } from 'src/app/admin/admin-dashboard/admin-dashboard.component';
-import { EditorComponent } from 'src/app/admin/editor/editor.component';
 import { UserTableComponent } from 'src/app/admin/user/user-table/user-table.component';
-import { BlogTableComponent } from 'src/app/blog/blog-table/blog-table.component';
-import { BlogFormComponent } from 'src/app/blog/blog-form/blog-form.component';
+
+import { AdminDashboardComponent } from 'src/app/admin/components/admin-dashboard/admin-dashboard.component';
+import { EditorComponent } from 'src/app/admin/components/editor/editor.component';
+import { BlogTableComponent } from 'src/app/blog/components/blog-table/blog-table.component';
+import { BlogFormComponent } from 'src/app/blog/components/blog-form/blog-form.component';
 
 
 const routes: Routes = [

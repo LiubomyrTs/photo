@@ -7,11 +7,11 @@
     </div>
     <div class="navigation-list col-auto">
       <div class="navigation-link">
-        <a class="link-default" href="#">Головна</a>
+        <a class="link-default" [routerLink]="['/']">Головна</a>
       </div>
       <div class="navigation-link nav-dropdown-menu">
         <a class="link-default" href="#">Послуги</a>
-        <ul class="nav-sub-list">
+        <ul class="nav-sub-list no-base-styling">
           <li><a class="link-default" href="#">Весільна фотосесія</a></li>
           <li><a class="link-default" href="#">Сімейна фотозйомка</a></li>
           <li><a class="link-default" href="#">Фотосесія LoveStory</a></li>
@@ -19,7 +19,7 @@
         </ul>
       </div>
       <div class="navigation-link">
-        <a class="link-default" href="#">Портфоліо</a>
+        <a class="link-default" [routerLink]="['/portfolio']">Портфоліо</a>
       </div>
       <div class="navigation-link">
         <a class="link-default" href="#">Відгуки</a>
@@ -31,7 +31,7 @@
         <a class="link-default" href="#">Контакти</a>
       </div>
     </div>
-    <div class="col-auto row justify-content-center">
+    <!-- <div class="col-auto row justify-content-center">
       <div class="social-link">
         <a href="#" class="link-default"><i class="fa fa-instagram"></i></a>
       </div>
@@ -44,7 +44,7 @@
       <div class="social-link">
         <a href="#" class="link-default"><i class="fa fa-telegram"></i></a>
       </div>
-    </div>
+    </div> -->
     <div class="col-auto row justify-content-end" *ngIf="!isLoggedIn; else dashboardLink">
       <div class="navigation-link border-right">
         <a class="link-default" [routerLink]="['/registration']">Зареєструватись</a>
