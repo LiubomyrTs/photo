@@ -1,1 +1,92 @@
-<p>contacts works!</p>
+<h1 class="text-center">Контакти</h1>
+<div class="d-flex flex-column align-items-center justify-content-center my-3">
+  <div class="col-auto mx-auto">
+    <div class="row">
+      <span class="col-4">Email:</span>      <a class="link-black col-8" href="mailto:Dykyi.oleksandr.if@gmail.com">Dykyi.oleksandr.if@gmail.com</a>
+    </div>
+    <div class="row">
+      <span class="col-4">Телефон:</span>
+      <a class="link-black col-8" href="#">+38099999999</a>
+    </div>
+  </div>
+</div>
+<h4 class="mt-4 mb-3 text-center font-weight-light">Напишіть нам лист і ми відповімо протягом 2 робочих днів</h4>
+<form  #ngForm="ngForm" [formGroup]="form" (submit)="handleSubmit()">
+  <div class="row mb-3">
+    <div class="col-sm-6 col-12">
+      <div class="form-group">
+        <input
+          required
+          class="form-control"
+          type="text"
+          id="name"
+          formControlName="name"
+          placeholder="Ім'я"
+          minlength="2"
+          maxlength="30"
+        >
+        <app-form-control-errors controlName="name" [ngForm]="ngForm"></app-form-control-errors>
+      </div>
+      <div class="form-group">
+        <input
+          required
+          email
+          class="form-control"
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Email"
+          minlength="2"
+          maxlength="30"
+        >
+        <app-form-control-errors controlName="email" [ngForm]="ngForm"></app-form-control-errors>
+      </div>
+      <div class="form-group mb-0">
+        <input
+          required
+          class="form-control"
+          type="text"
+          id="phone"
+          formControlName="phone"
+          placeholder="Телефон"
+          minlength="2"
+          maxlength="30"
+        >
+        <app-form-control-errors controlName="phone" [ngForm]="ngForm"></app-form-control-errors>
+      </div>
+    </div>
+    <div class="col-sm-6 col-12">
+      <div class="form-group h-100">
+        <textarea
+          class="form-control h-100"
+          name="message"
+          id="message"
+          formControlName="message"
+          minlength="2"
+          maxlength="30"
+          placeholder="Повідомлення"
+          required
+        ></textarea>
+        <app-form-control-errors controlName="message" [ngForm]="ngForm"></app-form-control-errors>
+      </div>
+    </div>
+  </div>
+  <div class="button-group text-center">
+    <button type="submit" class="px-5 app-btn app-submit-btn">Надіслати</button>
+  </div>
+</form>
+<h4 class="mt-5 text-center font-weight-light">Підписуйтесь на нас у соцмережах</h4>
+<div class="d-flex justify-content-center contacts-social-links">
+  <div class="social-link">
+    <a href="#" class="link-black"><i class="fa fa-instagram"></i></a>
+  </div>
+  <div class="social-link">
+    <a href="#" class="link-black"><i class="fa fa-facebook"></i></a>
+  </div>
+  <div class="social-link">
+    <a href="#" class="link-black"><i class="fa fa-youtube"></i></a>
+  </div>
+  <div class="social-link">
+    <a href="#" class="link-black"><i class="fa fa-telegram"></i></a>
+  </div>
+</div>

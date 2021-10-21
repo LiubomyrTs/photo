@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-contacts',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contacts.component.scss']
 })
 export class ContactsComponent implements OnInit {
+  form: FormGroup;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private formBuilder: FormBuilder) {
+    this.form = this.formBuilder.group({
+      name: '',
+      email: '',
+      phone: '',
+      message: ''
+    });
   }
 
+  ngOnInit(): void {
+
+  }
+
+  handleSubmit() {
+    
+  }
 }

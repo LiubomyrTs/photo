@@ -5,11 +5,11 @@
         <em class="fa fa-lg fa-file-text-o"></em>&nbsp;
         <span *ngIf="!file.key">{{file.name}}</span>
         <a 
-          *ngIf="file.key"
+          *ngIf="file.url"
           class="btn btn-link"
           rel="noopener"
           target="_blank"
-          [href]="'/api/files?key=' + file.key + (accessToken ? ('?access_token=' + accessToken) : '')"
+          [href]="serverUrl + file.url"
         >
           {{file.name}}&nbsp;
           <em class="fa fa-lg fa-eye"></em>

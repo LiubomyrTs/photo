@@ -31,17 +31,6 @@
   }
 }
 
-.social-link {
-  padding: 0 1rem;
-  &:last-of-type {
-    padding-right: 0;
-  }
-}
-
-.social-link a {
-  color: #fff;
-}
-
 .nav-dropdown-menu {
   position: relative;
   &:hover {
@@ -50,6 +39,10 @@
       animation-name: fadeId;
       animation-duration: 0.3s;
     }
+  }
+
+  & > .link-default {
+    cursor: default;
   }
 }
 

@@ -1,0 +1,69 @@
+<p>home-info-form works!</p>
+<form  #ngForm="ngForm" [formGroup]="form" (submit)="handleSubmit()">
+  <div class="form-group">
+    <label for="title">Основний заголовок</label>
+    <input
+      required
+      class="form-control"
+      type="text"
+      id="title"
+      formControlName="title"
+      placeholder="Заголовок картки"
+      minlength="2"
+      maxlength="30"
+    >
+    <app-form-control-errors controlName="cardTitle" [ngForm]="ngForm"></app-form-control-errors>
+  </div>
+  <div class="form-group">
+    <label for="cardTitle">Підзаголовок</label>
+    <input
+      required
+      class="form-control"
+      type="text"
+      id="cardTitle"
+      formControlName="cardTitle"
+      placeholder="Заголовок картки"
+      minlength="2"
+      maxlength="30"
+    >
+    <app-form-control-errors controlName="cardTitle" [ngForm]="ngForm"></app-form-control-errors>
+  </div>
+  <div class="form-group">
+    <label for="cardText">Текст картки</label>
+    <input
+      required
+      class="form-control"
+      type="text"
+      id="cardText"
+      formControlName="cardText"
+      placeholder="Текст картки"
+      minlength="2"
+      maxlength="3000"
+    >
+    <app-form-control-errors controlName="cardText" [ngForm]="ngForm"></app-form-control-errors>
+  </div>
+  <div class="form-group">
+    <label for="carouselPhotos">Фото каруселі</label>
+    <app-file-upload
+      dragzone="Натисніть або перетягніть фото сюди..."
+      formControlName="carouselPhotos"
+      message="Фото"
+      [multiple]="true"
+      required
+    ></app-file-upload>
+    <app-form-control-errors controlName="carouselPhotos" [ngForm]="ngForm"></app-form-control-errors>
+  </div>
+  <div class="form-group">
+    <label for="carouselPhotos">Фото картки</label>
+    <app-file-upload
+      dragzone="Натисніть або перетягніть фото сюди..."
+      formControlName="cardPhotos"
+      message="Фото"
+      [multiple]="true"
+      required
+    ></app-file-upload>
+    <app-form-control-errors controlName="cardPhotos" [ngForm]="ngForm"></app-form-control-errors>
+  </div>
+
+  <input type="submit" value="Submit">
+</form>

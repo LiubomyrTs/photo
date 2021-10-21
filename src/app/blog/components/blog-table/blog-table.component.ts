@@ -18,11 +18,15 @@ export class BlogTableComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getBlogs();
+  }
+
+  getBlogs() {
     this.blogService.getAll()
       .subscribe((blogs: Blog[]) => this.blogs = blogs);
   }
 
   handleDelete(id) {
-    this.blogService.delete(id).subscribe();
+    this.blogService.delete(id).subscribe(this.getBlogs.bind(this));
   }
 }

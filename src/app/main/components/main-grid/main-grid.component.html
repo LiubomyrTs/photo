@@ -1,8 +1,8 @@
 <div class="text-overlay">
-  <img src="assets/images/1.jpg">
-  <h1 class="text-overlay-title">Lorem, ipsum dolor.</h1>
+  <div *ngFor="let photoSrc of homeInfo?.carouselPhotos">
+    <img [appServerSrc]="photoSrc" alt="not found">
+  </div>
+  <h1 class="text-overlay-title">{{ homeInfo?.title }}</h1>
 </div>
- <app-main-info-card></app-main-info-card>
+ <app-main-info-card [homeInfo]="homeInfo"></app-main-info-card>
  <app-blog-grid [mainPage]="true"></app-blog-grid>
- <app-generated-content [content]="content"></app-generated-content>
-

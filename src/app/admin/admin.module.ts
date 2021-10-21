@@ -10,6 +10,7 @@ import { AdminDashboardComponent } from 'src/app/admin/components/admin-dashboar
 import { EditorComponent } from 'src/app/admin/components/editor/editor.component';
 import { BlogTableComponent } from 'src/app/blog/components/blog-table/blog-table.component';
 import { BlogFormComponent } from 'src/app/blog/components/blog-form/blog-form.component';
+import { HomeInfoFormComponent } from 'src/app/admin/components/home-info-form/home-info-form.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
       {
         path: 'blogs/add',
         component: BlogFormComponent
+      },
+      {
+        path: 'home-info',
+        component: HomeInfoFormComponent
       }
     ],
   }
@@ -39,7 +44,8 @@ const routes: Routes = [
     EditorComponent,
     UserTableComponent,
     BlogTableComponent,
-    BlogFormComponent
+    BlogFormComponent,
+    HomeInfoFormComponent
   ],
   imports: [
     CommonModule,

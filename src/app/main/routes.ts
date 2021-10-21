@@ -6,6 +6,7 @@ import { RegistrationComponent } from 'src/app/auth/components/registration/regi
 import { DashboardComponent } from 'src/app/main/components/dashboard/dashboard.component';
 import { MainGridComponent } from 'src/app/main/components/main-grid/main-grid.component';
 import { PortfolioGridComponent } from 'src/app/portfolio/components/portfolio-grid/portfolio-grid.component';
+import { ContactsComponent } from 'src/app/main/components/contacts/contacts.component';
 
 export const routes: Routes = [
   {
@@ -39,6 +40,13 @@ export const routes: Routes = [
   {
     path: 'portfolio',
     component: PortfolioGridComponent,
+    data: {
+      layout: LAYOUT.MAIN
+    }
+  },
+  {
+    path: 'contacts',
+    component: ContactsComponent,
     data: {
       layout: LAYOUT.MAIN
     }

@@ -1,6 +1,7 @@
 @import './typography.scss';
 @import './variables.scss';
 @import './header.scss';
+@import './footer.scss';
 @import './animations.scss';
 
 @import './sections.scss';
@@ -57,3 +58,14 @@ ul.no-base-styling {
 .shadowed {
   box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.4);
 }
+
+.contacts-social-links {
+  .social-link {
+    padding: 0 1.8rem;
+  }
+
+  .social-link a {
+    font-size: 2rem;
+  }
+}
+

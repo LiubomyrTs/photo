@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeInfoService } from 'src/app/admin/services/home-info.service';
 
 @Component({
   selector: 'app-main-grid',
@@ -14,8 +15,14 @@ export class MainGridComponent implements OnInit {
     surname: '321'
   }
 
-  constructor() { }
+  homeInfo: any;
+
+  constructor(
+    private homeInfoService: HomeInfoService,
+  ) { }
 
   ngOnInit(): void {
+    this.homeInfoService.get()
+      .subscribe((homeInfo) => this.homeInfo = homeInfo);
   }
 }

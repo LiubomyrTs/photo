@@ -1,6 +1,7 @@
 import {Component, ElementRef, forwardRef, HostListener, OnInit, ViewChild, Input} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import * as _ from 'lodash';
+import { environment } from 'src/environments/environment';
 
 @Component({
   providers: [{
@@ -23,6 +24,7 @@ export class FileUploadComponent implements ControlValueAccessor, OnInit {
   @Input() message: string;
   @Input() multiple = false;
   @Input() fileMaximumNumber: number;
+  serverUrl = environment.serverUrl;
 
   // BYTES_IN_MEGABYTE = BYTES_IN_MEGABYTE;
 
