@@ -1,16 +1,19 @@
 .text-overlay {
-  width: 100vw;
+  // width: 100vw;
+  // max-width: 1920px;
   position: relative;
-  max-width: 1920px;
-  margin: 0 auto;
-  position: relative;
-  left: -10vw;
   margin-top: -1.5rem;
+  .app-carousel-photos {
+    width: 100vw;
+   position: relative;
+   left: calc(50% - 7px);
+   margin-left: -50vw;
+  }
   img {
     // position: absolute;
     // top: 0;
     // left: 0;
-    width: 100%;
+    width: 100vw;
     filter: grayscale(1);
   }
   h1 {

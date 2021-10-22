@@ -3,6 +3,9 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { HomeInfoService } from 'src/app/admin/services/home-info.service';
 import { HomeInfo } from 'src/app/main/interfaces/home-info.interface';
 import { switchMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { AlertService } from 'src/app/shared/services/alert.service';
+import { ALERT_TYPES } from 'src/app/shared/enums/alert-types.enum';
 
 @Component({
   selector: 'app-home-info-form',
@@ -14,7 +17,9 @@ export class HomeInfoFormComponent implements OnInit {
   homeInfo: HomeInfo;
   constructor(
     private formBuilder: FormBuilder,
-    private homeInfoService: HomeInfoService
+    private homeInfoService: HomeInfoService,
+    private router: Router,
+    private alertService: AlertService
   ) {
     this.form = formBuilder.group({
       title: '',
@@ -41,6 +46,7 @@ export class HomeInfoFormComponent implements OnInit {
           photo.url = photoUrls[index]
         });
         this.form.patchValue({
+          ...this.homeInfo,
           carouselPhotos: photos.slice(0, this.homeInfo.carouselPhotos.length),
           cardPhotos: photos.slice(-this.homeInfo.cardPhotos.length)
         })
@@ -69,6 +75,9 @@ export class HomeInfoFormComponent implements OnInit {
     }
 
     this.homeInfoService.save(formData)
-      .subscribe(console.log);
+      .subscribe((res: any) => {
+        this.router.navigate(['/admin']);
+        this.alertService.showAlert(ALERT_TYPES.SUCCESS, res.msg);
+      });
   }
 }

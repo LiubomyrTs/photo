@@ -1,5 +1,5 @@
 <div class="text-overlay">
-  <div *ngFor="let photoSrc of homeInfo?.carouselPhotos">
+  <div *ngFor="let photoSrc of homeInfo?.carouselPhotos" class="app-carousel-photos">
     <img [appServerSrc]="photoSrc" alt="not found">
   </div>
   <h1 class="text-overlay-title">{{ homeInfo?.title }}</h1>
