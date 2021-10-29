@@ -13,6 +13,7 @@ import { LoginComponent } from 'src/app/auth/components/login/login.component';
 import { MainGridComponent } from 'src/app/main/components/main-grid/main-grid.component';
 import { MainInfoCardComponent } from 'src/app/main/components/main-info-card/main-info-card.component';
 import { ContactsComponent } from 'src/app/main/components/contacts/contacts.component';
+import { PhotosessionModule } from 'src/app/photosession/photosession.module';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ContactsComponent } from 'src/app/main/components/contacts/contacts.com
     ReactiveFormsModule,
     RouterModule,
     SharedModule,
+    PhotosessionModule
   ],
   declarations: [
     DashboardComponent,

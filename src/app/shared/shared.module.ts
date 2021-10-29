@@ -9,6 +9,7 @@ import { FormControlErrorsComponent } from 'src/app/shared/components/form-contr
 import { GeneratedContentComponent } from 'src/app/shared/components/generated-content/generated-content.component';
 import { FileUploadComponent } from 'src/app/shared/components/file-upload/file-upload.component';
 import { ServerSrcDirective } from 'src/app/shared/directives/server-src.directive';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ServerSrcDirective } from 'src/app/shared/directives/server-src.directi
     GeneratedContentComponent,
     SafeHtmlPipe,
     FileUploadComponent,
-    ServerSrcDirective
+    ServerSrcDirective,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { ServerSrcDirective } from 'src/app/shared/directives/server-src.directi
     GeneratedContentComponent,
     SafeHtmlPipe,
     FileUploadComponent,
-    ServerSrcDirective
+    ServerSrcDirective,
+    LoaderComponent
   ],
   providers: [
   ]

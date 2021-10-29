@@ -1,0 +1,52 @@
+.background, .app-spinner-wrapper {
+  display: none !important;
+}
+
+.keep-sizing.loading {
+  .loader-content-wrapper {
+    visibility: hidden;
+  }
+}
+
+.loading {
+  min-height: 6rem;
+  position: relative;
+
+  &.input-static-text-loader {
+    min-height: auto;
+
+    .app-spinner-wrapper {
+      top: -0.25rem;
+      left: calc(50% - 0.75rem);
+    }
+  
+    .app-spinner-border {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-width: 0.15rem;
+    }
+  }
+
+  .loader-content-wrapper {
+    filter: blur(3px);
+  }
+
+ .app-spinner-wrapper {
+   display: inherit !important;
+   left: calc(50% - 1.25rem);
+   position: absolute;
+   top: 2rem;
+ }
+
+  .background {
+    background: transparent;
+    display: inherit !important;
+    height: 100%;
+    left: 0;
+    opacity: 0.1;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+  }
+}

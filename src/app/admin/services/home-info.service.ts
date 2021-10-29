@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HomeInfo } from 'src/app/main/interfaces/home-info.interface';
-import { forkJoin } from 'rxjs';
+import { forkJoin, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,9 @@ export class HomeInfoService {
   }
 
   getPhotos(fileUrls: string[]) {
+    if (!fileUrls.length) {
+      return of([]);
+    }
     const fileRequests = fileUrls.map((url) => this.http.get(url, { responseType: 'blob' }));
     return forkJoin(fileRequests);
   }

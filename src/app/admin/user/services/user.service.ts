@@ -14,8 +14,10 @@ export class UserService {
   ) {}
 
   gelAll() {
-    let headers = new HttpHeaders();
-    headers = headers.append('Authorization', this.authService.authToken);
-    return this.http.get<User[]>('users', { headers });
+    return this.http.get<User[]>('users');
+  }
+
+  getById(id) {
+    return this.http.get(`users/${id}`);
   }
 }

@@ -14,6 +14,7 @@ import { GlobalErrorHandler } from 'src/app/shared/handlers/global-error.handler
 import { AlertService } from 'src/app/shared/services/alert.service';
 import { AuthInterceptor } from 'src/app/core/interceptors/auth.interceptor';
 import { PortfolioModule } from 'src/app/portfolio/portfolio.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PortfolioModule } from 'src/app/portfolio/portfolio.module';
     HttpClientModule,
     FormsModule,
     MainModule,
-    PortfolioModule
+    PortfolioModule,
+    NgbModule
   ],
   providers: [
     { provide: ErrorHandler, useClass: GlobalErrorHandler, deps: [AlertService] },

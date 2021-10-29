@@ -7,6 +7,7 @@ import { DashboardComponent } from 'src/app/main/components/dashboard/dashboard.
 import { MainGridComponent } from 'src/app/main/components/main-grid/main-grid.component';
 import { PortfolioGridComponent } from 'src/app/portfolio/components/portfolio-grid/portfolio-grid.component';
 import { ContactsComponent } from 'src/app/main/components/contacts/contacts.component';
+import { PhotosessionViewComponent } from 'src/app/photosession/components/photosession-view/photosession-view.component';
 
 export const routes: Routes = [
   {
@@ -47,6 +48,13 @@ export const routes: Routes = [
   {
     path: 'contacts',
     component: ContactsComponent,
+    data: {
+      layout: LAYOUT.MAIN
+    }
+  },
+  {
+    path: 'photosession/:id',
+    component: PhotosessionViewComponent,
     data: {
       layout: LAYOUT.MAIN
     }

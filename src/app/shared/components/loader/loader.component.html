@@ -1,0 +1,9 @@
+<div [class]="wrapperClass" [class.loading]="loading">
+  <div class="loader-content-wrapper">
+    <ng-content *ngIf="!hideContent || !loading"></ng-content>
+  </div>
+  <div class="background"></div>
+  <div class="app-spinner-wrapper d-flex justify-content-center">
+    <div class="app-spinner-border text-primary"></div>
+  </div>
+</div>

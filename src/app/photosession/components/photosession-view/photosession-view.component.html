@@ -1,0 +1,7 @@
+<p>photosession-view works!</p>
+<p>{{ photosession | json }}</p>
+<h2>{{ photosession?.title }}</h2>
+<small>{{ photosession?.date | date: 'shortDate' }}</small>
+<div *ngFor="let photo of photosession?.photos">
+  <img [appServerSrc]="photo">
+</div>

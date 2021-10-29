@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   authToken: any;
-  user: any;
 
   constructor(
     private http: HttpClient,
@@ -23,6 +22,10 @@ export class AuthService {
 
   get dashboardUrl() {
     return this.isUserInRole(USER_ROLES.ADMIN) ? ['/admin'] : ['/dashboard'];
+  }
+
+  get user() {
+    return JSON.parse(localStorage.getItem('user'));
   }
 
   isUserInRole(role: USER_ROLES) {
@@ -55,7 +58,6 @@ export class AuthService {
     localStorage.removeItem('user');
     localStorage.removeItem('id_token');
     this.authToken = null;
-    this.user = null;
     this.router.navigate(['/']);
     this.loggedInSubject.next(false);
   }
@@ -69,7 +71,6 @@ export class AuthService {
     localStorage.setItem('id_token', token);
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
-    this.user = user;
   }
 
   registerUser(user) {

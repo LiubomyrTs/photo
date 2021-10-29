@@ -1,0 +1,45 @@
+<app-loader [loading]="loading">
+  <form  #ngForm="ngForm" [formGroup]="form" (submit)="handleSubmit()">
+    <div class="form-group">
+      <label for="title">Назва</label>
+      <input
+        required
+        class="form-control"
+        type="text"
+        id="title"
+        formControlName="title"
+        placeholder="Назва"
+        minlength="2"
+        maxlength="30"
+      >
+      <app-form-control-errors controlName="title" [ngForm]="ngForm"></app-form-control-errors>
+    </div>
+    <div class="form-group">
+      <label for="date">Дата</label>
+      <ngb-datepicker #dp formControlName="date"></ngb-datepicker>
+    </div>
+    <div class="form-group">
+      <label for="date">Обкладинка</label>
+      <app-file-upload
+      dragzone="Натисніть або перетягніть фото сюди..."
+      formControlName="cover"
+      message="Фото"
+      [multiple]="false"
+      required
+      ></app-file-upload>
+      <app-form-control-errors controlName="cover" [ngForm]="ngForm"></app-form-control-errors>
+    </div>
+    <div class="form-group">
+      <label for="date">Фото</label>
+      <app-file-upload
+      dragzone="Натисніть або перетягніть фото сюди..."
+      formControlName="photos"
+      message="Фото"
+      [multiple]="true"
+      required
+      ></app-file-upload>
+      <app-form-control-errors controlName="photos" [ngForm]="ngForm"></app-form-control-errors>
+    </div>
+    <input type="submit" value="Submit">
+  </form>
+</app-loader>

@@ -11,6 +11,8 @@ import { EditorComponent } from 'src/app/admin/components/editor/editor.componen
 import { BlogTableComponent } from 'src/app/blog/components/blog-table/blog-table.component';
 import { BlogFormComponent } from 'src/app/blog/components/blog-form/blog-form.component';
 import { HomeInfoFormComponent } from 'src/app/admin/components/home-info-form/home-info-form.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PhotosessionFormComponent } from 'src/app/photosession/components/photosession-form/photosession-form.component';
 
 
 const routes: Routes = [
@@ -20,7 +22,11 @@ const routes: Routes = [
     children: [
       {
         path: 'users',
-        component: UserTableComponent
+        component: UserTableComponent,
+      },
+      {
+        path: 'users/:id/photosession-form',
+        component: PhotosessionFormComponent
       },
       {
         path: 'blogs',
@@ -45,9 +51,11 @@ const routes: Routes = [
     UserTableComponent,
     BlogTableComponent,
     BlogFormComponent,
-    HomeInfoFormComponent
+    HomeInfoFormComponent,
+    PhotosessionFormComponent
   ],
   imports: [
+    NgbModule,
     CommonModule,
     EditorModule,
     FormsModule,

@@ -12,5 +12,8 @@
     <td>{{ user.email }}</td>
     <td>{{ user.username }}</td>
     <td>{{ user.created_at | date: 'medium' }}</td>
+    <td>
+      <a class="btn btn-primary" [routerLink]="[user._id, 'photosession-form']">Додати фотосесію</a>
+    </td>
   </tr>
 </table>

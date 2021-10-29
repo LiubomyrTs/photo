@@ -1,0 +1,4 @@
+<p>photosession-grid works!</p>
+<div *ngFor="let photosession of photosessions">
+  <a [routerLink]="['/photosession', photosession._id]">{{ photosession.title }}</a>
+</div>
