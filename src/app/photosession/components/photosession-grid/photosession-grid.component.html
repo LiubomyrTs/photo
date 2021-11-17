@@ -1,4 +1,15 @@
-<p>photosession-grid works!</p>
-<div *ngFor="let photosession of photosessions">
-  <a [routerLink]="['/photosession', photosession._id]">{{ photosession.title }}</a>
+<h1>Фотосесії</h1>
+<div class="row my-4">
+  <div class="blog-card col-sm-4" *ngFor="let photosession of photosessions" (click)="handleCardClick(photosession._id)">
+    <div class="shadow-wrapper w-100 h-100"></div>
+    <div class="blog-content">
+      <img [appServerSrc]="photosession?.cover" alt="" style="width: 100%;">
+      <span>{{ photosession.date | date: 'shortDate' }}</span>
+      <h3 class="blog-title">{{ photosession.title }}</h3>
+    </div>
+  </div>
 </div>
+<!-- 
+<div *ngFor="let photosession of photosession">
+  <a [routerLink]="['/photosession', photosession._id]">{{ photosession.title }}</a>
+</div> -->

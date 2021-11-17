@@ -15,6 +15,7 @@ import { AlertService } from 'src/app/shared/services/alert.service';
 import { AuthInterceptor } from 'src/app/core/interceptors/auth.interceptor';
 import { PortfolioModule } from 'src/app/portfolio/portfolio.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     MainModule,
     PortfolioModule,
-    NgbModule
+    NgbModule,
+    SwiperModule
   ],
   providers: [
     { provide: ErrorHandler, useClass: GlobalErrorHandler, deps: [AlertService] },

@@ -1,7 +1,30 @@
-<p>photosession-view works!</p>
-<p>{{ photosession | json }}</p>
-<h2>{{ photosession?.title }}</h2>
-<small>{{ photosession?.date | date: 'shortDate' }}</small>
-<div *ngFor="let photo of photosession?.photos">
-  <img [appServerSrc]="photo">
+<a [routerLink]="['/dashboard']" class="back-link link-black text-underline">До фотосесій</a>
+<div class="cover">
+  <app-loader [loading]="coverLoading" hideContent="true">
+    <div class="cover-text">
+      <div class="cover-text-border">
+        <h1>{{ photosession?.title }}</h1>
+        <small>{{ photosession?.date | date: "shortDate" }}</small>
+      </div>
+    </div>
+    <img [appServerSrc]="photosession?.cover" alt="cover" class="w-100" (load)="coverLoading=false">
+  </app-loader>
 </div>
+<div class="grid" #photoGrid>
+  <app-loader [loading]="false" hideContent="true">
+    <div
+      class="grid-item photosession-photo"
+      *ngFor="let photo of photosToLoad; let i = index"
+      (click)="handleOpenGallery()"
+    >
+      <div class="shadow-wrapper p-3 w-100 justify-content-end align-items-end">
+        <span class="link-default" (click)="handleCartClick($event)">
+          {{ i }}
+          <em class="fa fa-shopping-cart"></em>
+        </span>
+      </div>
+      <img [style.visibility]="newPhotosLoading && photosToLoad.length - 10 < i + 1 ? 'hidden' : 'visible'" [appServerSrc]="photo" class="w-100" (load)="onImageLoad($event)"/>
+    </div>
+  </app-loader>
+</div>
+<app-loader [loading]="newPhotosLoading"></app-loader>

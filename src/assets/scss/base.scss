@@ -11,6 +11,8 @@
 @import './buttons.scss';
 @import './alerts.scss';
 @import './loader.scss';
+@import './modal.scss';
+@import './photosession.scss';
 
 body {
   margin: 0;
@@ -70,3 +72,20 @@ ul.no-base-styling {
   }
 }
 
+.shadow-wrapper {
+  transition: all ease-out .4s;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 10px;
+}

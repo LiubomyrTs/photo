@@ -1,0 +1,17 @@
+<div (click)="handleClick($event)">
+  <swiper
+    [config]="config"
+  >
+    <ng-template swiperSlide *ngFor="let photo of photos">
+      <img [appServerSrc]="photo"/>
+      <div class="photo-action-buttons">
+        <span class="link-default">
+          <em class="fa fa-shopping-cart"></em>
+        </span>
+        <span class="link-default" (click)="activeModal.close()">
+          <em class="fa fa-times"></em>
+        </span>
+      </div>
+    </ng-template>
+  </swiper>
+</div>

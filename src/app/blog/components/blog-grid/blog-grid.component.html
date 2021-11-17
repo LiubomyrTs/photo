@@ -1,11 +1,11 @@
 <h1 *ngIf="!mainPage">Блог</h1>
 <div class="row my-4">
   <div class="blog-card col-sm-4" *ngFor="let blog of blogs" (click)="handleCardClick(blog._id)">
-    <div class="blog-shadow-wrapper w-100 h-100"></div>
+    <div class="shadow-wrapper w-100 h-100"></div>
     <div class="blog-content">
       <img [appServerSrc]="blog.cover" alt="" style="width: 100%;">
       <span>{{ blog.created_at | date: 'shortDate' }}</span>
-      <h2 class="blog-title">{{ blog.title }}</h2>
+      <h3 class="blog-title">{{ blog.title }}</h3>
       <p class="blog-description">{{ blog.subtitle }}</p>
     </div>
   </div>

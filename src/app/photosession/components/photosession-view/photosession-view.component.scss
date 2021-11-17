@@ -1,0 +1,14 @@
+/* clearfix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- grid-item ---- */
+
+.grid-item {
+  width: calc((100% - 4 * 10px) / 5);
+  float: left;
+  margin-bottom: 10px;
+}

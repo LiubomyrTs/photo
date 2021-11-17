@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PhotosessionService } from 'src/app/photosession/services/photosession.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Photosesion } from 'src/app/photosession/interfaces/photosession.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-photosession-grid',
@@ -13,7 +14,8 @@ export class PhotosessionGridComponent implements OnInit {
 
   constructor(
     private authSerice: AuthService,
-    private photosessionService: PhotosessionService
+    private photosessionService: PhotosessionService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -21,4 +23,7 @@ export class PhotosessionGridComponent implements OnInit {
       .subscribe((photosessions: Photosesion[]) => { this.photosessions = photosessions })
   }
 
+  handleCardClick(id: string) {
+    this.router.navigate(['photosession', id]);
+  }
 }

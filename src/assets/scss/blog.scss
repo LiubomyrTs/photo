@@ -1,10 +1,11 @@
 .blog-card {
   text-align: center;
 
-  &:hover .blog-shadow-wrapper {
+  &:hover .shadow-wrapper {
     cursor: pointer;
     display: block;
     transition: all ease-out .4s;
+    background-color: rgba($color: #000000, $alpha: 0.4);
   }
 
   .blog-content {
@@ -12,17 +13,11 @@
     z-index: 1;
   }
 
-  .blog-shadow-wrapper {
-    transition: all ease-out .4s;
-    z-index: 2;
-    background-color: rgba($color: #000000, $alpha: 0.4);
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: none;
-  }
-
   img {
     width: 100%;
+  }
+
+  .blog-title {
+    font-weight: 300;
   }
 }
