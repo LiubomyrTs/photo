@@ -1,4 +1,4 @@
-export interface Photosesion {
+export interface Photosession {
   title: string;
   date: Date;
   cover: string;

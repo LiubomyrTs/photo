@@ -1,0 +1,24 @@
+<a [routerLink]="['/admin', 'users']" class="back-link text-underline">До користувачів</a>
+<app-loader [loading]="loading" hideContent="true">
+  <h2 *ngIf="!photosessions?.length">Немає доданих фотосесій</h2>
+  <table class="table table-bordered" *ngIf="photosessions?.length">
+    <tr>
+      <th>№</th>
+      <th>Назва</th>
+      <th>Дата</th>
+      <th>Обкладинка</th>
+      <th>Логін</th>
+    </tr>
+    <tr *ngFor="let photosession of photosessions; let i = index">
+      <td>{{ i + 1 }}.</td>
+      <td>{{ photosession.title }}</td>
+      <td>{{ photosession.date | date: 'shortDate' }}</td>
+      <td><img height="200" [appServerSrc]="photosession.cover" alt=""></td>
+      <td>
+        <div class="d-flex flex-column">
+          <button class="btn btn-danger" (click)="deletePhotosession(photosession._id)">Видалити фотосесію</button>
+        </div>
+      </td>
+    </tr>
+  </table>
+</app-loader>

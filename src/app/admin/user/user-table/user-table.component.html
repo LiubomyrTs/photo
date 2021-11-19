@@ -13,7 +13,10 @@
     <td>{{ user.username }}</td>
     <td>{{ user.created_at | date: 'medium' }}</td>
     <td>
-      <a class="btn btn-primary" [routerLink]="[user._id, 'photosession-form']">Додати фотосесію</a>
+      <div class="d-flex flex-column">
+        <a class="btn btn-primary" [routerLink]="[user._id, 'photosession-form']">Додати фотосесію</a>
+        <a class="btn btn-link" [routerLink]="[user._id, 'photosessions']">Фотосесії</a>
+      </div>
     </td>
   </tr>
 </table>

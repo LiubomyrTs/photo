@@ -13,6 +13,7 @@ import { BlogFormComponent } from 'src/app/blog/components/blog-form/blog-form.c
 import { HomeInfoFormComponent } from 'src/app/admin/components/home-info-form/home-info-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PhotosessionFormComponent } from 'src/app/photosession/components/photosession-form/photosession-form.component';
+import { PhotosessionTableComponent } from 'src/app/photosession/components/photosession-table/photosession-table.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
       {
         path: 'users',
         component: UserTableComponent,
+      },
+      {
+        path: 'users/:id/photosessions',
+        component: PhotosessionTableComponent
       },
       {
         path: 'users/:id/photosession-form',
@@ -52,7 +57,8 @@ const routes: Routes = [
     BlogTableComponent,
     BlogFormComponent,
     HomeInfoFormComponent,
-    PhotosessionFormComponent
+    PhotosessionFormComponent,
+    PhotosessionTableComponent,
   ],
   imports: [
     NgbModule,

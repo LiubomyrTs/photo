@@ -6,6 +6,7 @@ import { switchMap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { AlertService } from 'src/app/shared/services/alert.service';
 import { ALERT_TYPES } from 'src/app/shared/enums/alert-types.enum';
+import { MessageResponse } from 'src/app/shared/interfaces/message-response.interface';
 
 @Component({
   selector: 'app-home-info-form',
@@ -75,7 +76,7 @@ export class HomeInfoFormComponent implements OnInit {
     }
 
     this.homeInfoService.save(formData)
-      .subscribe((res: any) => {
+      .subscribe((res: MessageResponse) => {
         this.router.navigate(['/admin']);
         this.alertService.showAlert(ALERT_TYPES.SUCCESS, res.msg);
       });

@@ -7,7 +7,7 @@ import {
 } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { PhotosessionService } from "src/app/photosession/services/photosession.service";
-import { Photosesion } from "src/app/photosession/interfaces/photosession.interface";
+import { Photosession } from "src/app/photosession/interfaces/photosession.interface";
 import { AuthService } from "src/app/auth/services/auth.service";
 import { NgbModal, NgbModalRef } from "@ng-bootstrap/ng-bootstrap";
 import { PhotosessionGalleryModalComponent } from "src/app/photosession/components/photosession-gallery-modal/photosession-gallery-modal.component";
@@ -25,7 +25,7 @@ export class PhotosessionViewComponent implements OnInit {
   imageLoadSubject = new Subject();
 
   photosToLoad: string[];
-  photosession: Photosesion;
+  photosession: Photosession;
   photosLoaded = 0;
   allowLoadingNewPhotos = false;
   newPhotosLoading = true;
@@ -45,7 +45,7 @@ export class PhotosessionViewComponent implements OnInit {
     this.photosessionSevice
       .getById(photosessionId)
       .pipe(
-        tap((photosession: Photosesion) => {
+        tap((photosession: Photosession) => {
           this.photosession = photosession;
           this.photosToLoad = photosession.photos.slice(0, 10);
         })
